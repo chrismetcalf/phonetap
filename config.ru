@@ -9,7 +9,7 @@ class PhoneTap < Sinatra::Base
   helpers Sinatra::JSON
 
   get '/bug/:name/:base64' do
-    push("Knock Knock! #{params[:name]}")
+    push("#{params[:name]} from #{request.ip}")
 
     # Only works with HTTP, because I'm lazy
     url = URI.parse(Base64.decode64(params[:base64]))
